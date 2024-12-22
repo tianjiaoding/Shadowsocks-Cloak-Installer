@@ -226,7 +226,7 @@ if [[ "$EUID" -ne 0 ]]; then #Check root
 fi
 distro=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
 if [ -d "/etc/cloak" ]; then
-	clear
+	# clear
 	echo "Looks like you have installed Cloak. Choose an option below:"
 	echo "1) Add User"
 	echo "2) Remove User"
@@ -333,7 +333,7 @@ if [ -d "/etc/cloak" ]; then
 	#Remove user
 	2)
 		ListAllUIDs
-		clear
+		# clear
 		COUNTER=1
 		for i in "${UIDS[@]}"; do
 			echo "$COUNTER) $i"
@@ -378,7 +378,7 @@ if [ -d "/etc/cloak" ]; then
 		kill $!
 		wait $! 2>/dev/null
 		mapfile -t UIDS_2 < <(jq -r '.[].UID?' <<<"$RESTRICTED_UIDS")
-		clear
+		# clear
 		echo "Here are the list of unrestricted users:"
 		for i in "${UIDS[@]}"; do
 			echo "$i"
@@ -393,7 +393,7 @@ if [ -d "/etc/cloak" ]; then
 	#Show connections for shadowsocks
 	4)
 		ListAllUIDs
-		clear
+		# clear
 		COUNTER=1
 		for i in "${UIDS[@]}"; do
 			echo "$COUNTER) $i"
@@ -411,7 +411,7 @@ if [ -d "/etc/cloak" ]; then
 		fi
 		cipher=$(jq -r '.method' <'/etc/shadowsocks-rust/config.json')
 		Password=$(jq -r '.password' <'/etc/shadowsocks-rust/config.json')
-		clear
+		# clear
 		ShowConnectionInfo
 		;;
 	#Change forwarding rules
@@ -526,7 +526,7 @@ if [ -d "/etc/cloak" ]; then
 	esac
 	exit
 fi
-clear
+# clear
 echo "Cloak installer by Hirbod Behnam"
 echo "Cloak at https://github.com/cbeuw/Cloak"
 echo "Source at https://github.com/HirbodBehnam/Shadowsocks-Cloak-Installer"
@@ -794,7 +794,7 @@ if [[ "$SHADOWSOCKS" == true ]]; then
 	if [ $CURL_EXIT_STATUS -ne 0 ]; then
 		PUBLIC_IP="YOUR_IP"
 	fi
-	clear
+	# clear
 	ckuid="$ckbuid"
 	ShowConnectionInfo
 fi
