@@ -178,7 +178,7 @@ function DownloadAndInstallSSRust() {
 	url=$(wget -O - -o /dev/null https://api.github.com/repos/shadowsocks/shadowsocks-rust/releases/latest | grep -E "/shadowsocks-v.+.$SS_ARCH.tar.xz\"" | grep -P 'https(.*)[^"]' -o)
 	wget -O shadowsocks.tar.xz "$url"
 	tar xf shadowsocks.tar.xz -C /usr/bin/
-	rm shadowsocks.tar.xz
+	# rm shadowsocks.tar.xz
 	# Create the config
 	mkdir /etc/shadowsocks-rust
 	echo "{
