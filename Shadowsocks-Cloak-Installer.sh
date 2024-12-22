@@ -39,7 +39,7 @@ function ShowConnectionInfo() {
 	echo "Or just use this string: $SERVER_BASE64"
 }
 function PreAdminConsolePrint() {
-	clear
+	# clear
 	echo "$(tput setaf 3)PLEASE READ THIS BEFORE CONTINUING$(tput sgr 0)"
 	echo "The steps here are semi-automated. You have to enter some values yourself. Please read all of the instructions on screen then continue."
 	echo
@@ -258,7 +258,7 @@ if [ -d "/etc/shadowsocks-libev" ]; then
 	exit 0
 fi
 ciphers=(rc4-md5 aes-128-gcm aes-192-gcm aes-256-gcm aes-128-cfb aes-192-cfb aes-256-cfb aes-128-ctr aes-192-ctr aes-256-ctr camellia-128-cfb camellia-192-cfb camellia-256-cfb bf-cfb chacha20-ietf-poly1305 xchacha20-ietf-poly1305 salsa20 chacha20 chacha20-ietf)
-clear
+# clear
 echo "Shadowsocks with Cloak installer by Hirbod Behnam"
 echo "Source at https://github.com/HirbodBehnam/Shadowsocks-Cloak-Installer"
 echo "Shadowsocks-libev at https://github.com/shadowsocks/shadowsocks-libev"
@@ -543,5 +543,5 @@ CURL_EXIT_STATUS=$?
 if [ $CURL_EXIT_STATUS -ne 0 ]; then
 	PUBLIC_IP="YOUR_IP"
 fi
-clear
+# clear
 ShowConnectionInfo true
